@@ -1,0 +1,27 @@
+PROCEDURE swap(VAR a,b INTEGER)
+VAR
+    temp: INTEGER;
+BEGIN
+    temp:=a
+    a:=b
+    b:=temp
+END
+
+
+ALGORITHM insertion sort
+VAR
+    arr : ARRAY_OF INTEGER[50];
+    i,j,min: INTEGER:=0;
+
+
+BEGIN
+    FOR i FROM 1 TO arr.length-1 STEP 1  DO
+        min:=i;
+        FOR j FROM i-1 TO arr.length-1 STEP 1  DO
+            IF ((arr[j] < arr[min]) THEN
+                min := j;
+            END_IF
+        END_FOR
+        swap(arr[min],arr[i]);
+    END_FOR
+END
